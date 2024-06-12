@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: rgb(5, 5, 5);
+  color: #fff;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.bg-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 700ms ease-in-out;
+}
+
+.image-1 {
+  background-image: url(https://wallpapercave.com/dwp2x/wp3163455.jpg);
+}
+.image-2 {
+  background-image: url(https://wallpapercave.com/wp/wp3163465.jpg);
+}
+.image-3 {
+  background-image: url(https://wallpapercave.com/dwp2x/wp4257699.jpg);
+}
+.image-4 {
+  background-image: url(https://wallpapercave.com/dwp2x/wp4257708.jpg);
+}
+.image-5 {
+  background-image: url(https://wallpapercave.com/dwp2x/wp3163453.jpg);
+}
+
+.slide {
+  position: relative;
+  height: 80vh;
+  flex: 0.5;
+  border-radius: 20px;
+  color: #fff;
+  margin: 10px;
+  cursor: pointer;
+  transition: flex 700ms ease-in-out, transform 700ms ease-in-out;
+}
+
+.slide h3 {
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+  font-size: 24px;
+  transition: opacity 0.3s ease-in 0.4s, transform 0.3s ease-in 0.4s;
+}
+
+.slide .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  transition: background 0.7s ease-in;
+}
+
+@media (max-width: 480px) {
+  .slide:nth-of-type(4),
+  .slide:nth-of-type(5) {
+    display: none;
+  }
+}
+
+.slide.active {
+  flex: 5;
+}
+
+.slide.active h3 {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide.active .overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.navigation-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.navigation-dots .dot {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navigation-dots .dot.active {
+  background-color: #007bff;
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+button.prev:hover,
+button.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
